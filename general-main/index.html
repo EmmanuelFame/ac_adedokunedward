@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year- 2025</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0.5em;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 0.2em;
+            text-align: center;
+            animation: slideUp 2s ease-in-out;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: white;
+            font-size: 1.5em;
+            animation: fall linear infinite;
+        }
+
+        #play-button {
+            background-color: #ffcc00;
+            color: #b60000;
+            border: none;
+            width: 160px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        #play-button:hover {
+            background-color: #d4418e;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .balloons {
+            position: absolute;
+            bottom: -150px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            animation: riseUp 5s infinite ease-in-out;
+        }
+
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: var(--balloon-color, red);
+            border-radius: 50% 50% 0 0;
+            position: relative;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: white;
+        }
+
+        @keyframes riseUp {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy new year to the Adedokuns ❤️🎉🎈🌟, Welcome to 2025❤️🎊🥳</h1>
+    <p>Wishing you love, joy, God's protection and peace this new year</p>
+    <p>And an exciting and prosperous year time!</p>
+    <p>Here's to a year filled with love, laughter, and dreams come true! ❤️</p>
+
+    <!-- Snowflakes -->
+    <div class="snowflake" style="left: 10%; animation-duration: 6s;">&#10052;</div>
+    <div class="snowflake" style="left: 30%; animation-duration: 5s;">&#10052;</div>
+    <div class="snowflake" style="left: 50%; animation-duration: 7s;">&#10052;</div>
+    <div class="snowflake" style="left: 70%; animation-duration: 4.5s;">&#10052;</div>
+    <div class="snowflake" style="left: 90%; animation-duration: 6.5s;">&#10052;</div>
+
+    <!-- Balloons -->
+    <div class="balloons">
+        <div class="balloon" style="--balloon-color: #ff6666;"></div>
+        <div class="balloon" style="--balloon-color: #ffcc66;"></div>
+        <div class="balloon" style="--balloon-color: #66ccff;"></div>
+        <div class="balloon" style="--balloon-color: #cc99ff;"></div>
+        <div class="balloon" style="--balloon-color: #66ff99;"></div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="./Denys Kyshchuk - New Year Happy Winter Background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="play-button" style="margin-top: 20px;">Play Music 🎵</button>
+
+    <script>
+        const music = document.getElementById('background-music');
+        const playButton = document.getElementById('play-button');
+
+        playButton.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().catch(error => console.error('Playback failed:', error));
+                playButton.textContent = 'Pause Music 🎵';
+            } else {
+                music.pause();
+                playButton.textContent = 'Play Music 🎵';
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+    <script>
+        function launchConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 120,
+                origin: {
+                    x: Math.random(),
+                    y: Math.random() * 0.6,
+                },
+                colors: ['#ff6666', '#ffcc66', '#66ccff', '#cc99ff', '#66ff99'],
+            });
+        }
+
+        // Launch confetti periodically
+        setInterval(launchConfetti, 3000);
+    </script>
+</body>
+</html>
